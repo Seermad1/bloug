@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+{% block content %}
+        <div class="form profile-form">
+            <div class="svg">
+                <a href="{{request.META.HTTP_REFERER}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi back-arrow bi-arrow-left" viewBox="0 0 16 16">
+                        <title>Back</title>
+                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                </a>
+            </div>  
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <h4 class="modal-title">Update profile</h4>
+              
+                <img src="{{user.profile_pic.url}}" class="img-thumbnail" alt="...">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">profile pic</label>
+                    <input name="profile_pic" class="form-control" type="file" id="formFile">
+                    <!-- {{form.profile_pic.currently}} -->
+                </div>
+    
+                <label for="title" class="form-label">Email</label>
+                <div class="form__group">
+                    <!-- <input type="email" class="form-control" required="required"> -->
+                    {{form.email}}
+                </div>
+    
+                <label for="title" class="form-label">username</label>
+                <div class="form__group">
+                    <!-- <input type="text" class="form-control" required="required"> -->
+                    {{form.username}}
+                </div>
+    
+                <label for="body" class="form-label">Bio</label>
+                <div class="form__group">
+                    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+                    {{form.bio}}
+                </div>
+    
+                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Update">              
+            </form>	
+        </div> 
+        {% endblock %}
+     

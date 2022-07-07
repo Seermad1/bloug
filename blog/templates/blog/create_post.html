@@ -1,0 +1,90 @@
+{% extends "main.html" %}
+{% block content %}
+        
+      <div class="form post-form"> 
+        <div class="svg">
+            <a href="{{request.META.HTTP_REFERER}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi back-arrow bi-arrow-left" viewBox="0 0 16 16">
+                    <title>Back</title>
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </a>
+        </div> 
+        {% if page == "create_post" %} 
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <h4 class="modal-title">create post</h4>
+          <label for="title" class="form-label">Title</label>
+            <div class="form-group form__group">
+                <!-- <input name="title" value="{{post.title}}" type="text" class="form-control" required="required"> -->
+                {{form.title}}
+            </div>
+
+            <div class="mb-3 form__group">
+                <label for="formFile" class="form-label">Post image</label>
+                <!-- <input name="post_image" class="form-control" type="file" id="formFile"> -->
+                {{form.post_image}}
+            </div>
+              
+            <label for="exampleDataList" class="form-label">Tag</label>
+            <div class="mb-3 form__group">
+                <input name="topic" class="form-control" list="datalistOptions" id="exampleDataList">
+                <datalist id="datalistOptions">
+                <select name="tag_name">
+                {% for topic in topics %}
+                <option value="{{topic}}">
+               {% endfor %}
+                </select>
+                </datalist>
+                <!-- {{form.topics}} -->
+            </div>
+
+            <label for="body" class="form-label">Body</label>
+            <div class="form-group form__group">
+                {{form.body}}
+                <!-- <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+            </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="publish">              
+        </form>	
+     
+    {% else %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <h4 class="modal-title">Update post</h4>
+        <label for="title" class="form-label">Title</label>
+            <div class="form-group form__group">
+                <!-- <input name="title" value="{{post.title}}" type="text" class="form-control" required="required"> -->
+                {{form.title}}
+            </div>
+
+            <div class="mb-3 form__group">
+                {{form.post_image.current}}
+                <label for="formFile" class="form-label">Post image</label>
+                <input name="post_image" class="form-control" type="file" id="formFile">
+                <!-- {{form.post_image}} -->
+            </div>
+            
+            <label for="exampleDataList" class="form-label">Tag</label>
+            <div class="mb-3 form__group">
+                <input name="topic" class="form-control" list="datalistOptions" id="exampleDataList">
+                <datalist id="datalistOptions">
+                <select name="tag_name">
+                {% for topic in topics %}
+                <option value="{{topic}}">
+            {% endfor %}
+                </select>
+                </datalist>
+                <!-- {{form.topics}} -->
+            </div>
+
+            <label for="body" class="form-label">Body</label>
+            <div class="form-group form__group">
+                {{form.body}}
+                <!-- <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+            </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Update">              
+        </form>	
+    {% endif %}
+     </div> 
+
+{% endblock %}

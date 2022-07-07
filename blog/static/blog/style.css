@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+body {
+  color: #999;
+  background: #f5f5f5;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.navbar img{
+  width:150px;
+  height: 50px;
+}
+.navbar-nav  li a:hover {
+  color: #fff !important;
+}
+.form-control {
+box-shadow: none;
+border-color: #ddd;
+}
+.form-control:focus {
+border-color: #4aba70; 
+}
+.form {
+  width: 40%;
+  margin: 0 auto;
+  padding: 0;
+}
+.form {
+  color: #434343;
+border-radius: 1px;
+margin-bottom: 15px;
+  background: #fff;
+border: 1px solid #f3f3f3;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+.form form{
+  padding: 10px 30px 30px;
+}
+.form h4 {
+text-align: center;
+font-size: 22px;
+  margin-bottom: 20px;
+}
+.form .form-group {
+  margin-bottom: 20px;
+}
+.form .form-control, .form .btn {
+min-height: 40px;
+border-radius: 2px; 
+  transition: all 0.5s;
+}
+.form .btn {
+background: #4aba70;
+border: none;
+line-height: normal;
+}
+.form .btn:hover, .form .btn:focus {
+background: #42ae68;
+}
+.form .checkbox-inline {
+  float: left;
+}
+.form input[type="checkbox"] {
+  margin-top: 2px;
+}
+.form .forgot-link {
+  float: right;
+}
+.form .small {
+  font-size: 13px;
+}
+.form a {
+  color: #4aba70;
+}
+
+
+/* my own style */
+.svg{
+  background-color: #4aba70;
+  padding: 10px 30px;
+}
+.svg a{
+  color: #fff;
+}
+/* .svg a .back-arrow{
+
+} */
+.profile-form img{
+  width: 100px;
+  height: 100px;
+}
+.card-body{
+  margin-top: 100px;
+}
+.profile-btn{
+  margin: 5px 0;
+}
+.delete-form{
+  margin-top: 10%;
+}
+.delete-form h4{
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 200px;
+}
+.post-form{
+  margin-top: 20px;
+}
+.registration-form{
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.registration-form h4, .login-form h4{
+  margin-top: 20px;
+}
+.login-form{
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+.post-setting a{
+  text-decoration: none;
+}
+.post-setting .post{
+  display: flex;
+  justify-content: space-around;
+}
+.form__group input,
+.form__group textarea,
+.form__group select {
+  padding: 0.5rem;
+  width: 100%;
+  outline-color: #42ae68;
+}
+.messages{
+  color: red;
+}
+
+@media screen and (max-width:1000px) {
+  .form {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .form {
+    width: 80%;
+  }
+  .navbar-nav{
+    text-align: center;
+  }
+}
+@media screen and (max-width:572px) {
+  .form {
+    width: 95%;
+  }
+  .form form, .form .svg{
+    padding: 10px;
+  }
+}
+

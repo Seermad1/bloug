@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "nav.html" %}
+
+    
+
+    {% if page == "login" %}
+      <div class="form login-form"> 
+        
+        <form action="" method="post">
+            {% csrf_token %}
+          <h4 class="modal-title">Login to Your Account</h4>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}   
+          <label for="email" class="form-label">Email</label>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="name@example.com" required="required">
+            </div>
+
+            <label for="password" class="form-label">Password</label>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="********" required="required">
+            </div>
+            <div class="form-group small clearfix">
+                <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+            </div> 
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
+        </form>			
+        <div class="text-center small">Don't have an account? <a href="{% url 'register' %}">Sign up</a></div>
+    </div> 
+    
+    {% else %}
+
+    <div class="form registration-form">    
+        <form action="" method="post">
+            {% csrf_token %}
+          <h4 class="modal-title">create an account</h4>
+          <label for="email" class="form-label">Email</label>
+            <div class="form-group">
+                <input name="email" type="email"  class="form-control" placeholder="name@example.com" required="required">
+            </div>
+            <label for="password" class="form-label">username</label>
+            <div class="form-group">
+                <input name="username" type="text" class="form-control" placeholder="username" required="required">
+            </div>
+            <label for="password" class="form-label">Password</label>
+            <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="********" required="required">
+            </div>
+            <label for="password" class="form-label">confirm Password</label>
+            <div class="form-group">
+                <input name="password2" type="password" class="form-control" placeholder="********" required="required">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register">              
+        </form>			
+        <div class="text-center small">Already have an account? <a href="{% url 'login' %}">Sign in</a></div>
+    </div>  
+    {% endif %}
+{% include "footer.html" %}
+{% endblock %}
