@@ -1,4 +1,5 @@
 {% extends "main.html" %}
+{% load static %}
 {% block content %}
         <div class="form profile-form">
             <div class="svg">
@@ -13,29 +14,28 @@
                 {% csrf_token %}
               <h4 class="modal-title">Update profile</h4>
               
-                <img src="{{user.profile_pic.url}}" class="img-thumbnail" alt="...">
+                <img src=
+                        {% if user.profile_pic.url == None %}
+                        "{% static 'assets/avatar.svg' %}"
+                        {% else %}
+                        {{user.profile_pic.url}}
+                        {% endif %}
+                class="img-thumbnail" alt="...">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">profile pic</label>
                     <input name="profile_pic" class="form-control" type="file" id="formFile">
-                    <!-- {{form.profile_pic.currently}} -->
                 </div>
     
                 <label for="title" class="form-label">Email</label>
-                <div class="form__group">
-                    <!-- <input type="email" class="form-control" required="required"> -->
-                    {{form.email}}
+                <div class="form__group"> {{form.email}}
                 </div>
     
                 <label for="title" class="form-label">username</label>
-                <div class="form__group">
-                    <!-- <input type="text" class="form-control" required="required"> -->
-                    {{form.username}}
+                <div class="form__group">{{form.username}}
                 </div>
     
                 <label for="body" class="form-label">Bio</label>
-                <div class="form__group">
-                    <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
-                    {{form.bio}}
+                <div class="form__group">{{form.bio}}
                 </div>
     
                 <input type="submit" class="btn btn-primary btn-block btn-lg" value="Update">              
