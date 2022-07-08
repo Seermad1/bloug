@@ -65,18 +65,7 @@ def register_user(request):
                         return redirect("home")
         else:
             messages.error(request, "password donot match.")
-    # form = MyUserCreationForm()
-    # if request.method == "POST":
-    #     form = MyUserCreationForm(request.POST)
-    #     try:
-    #         if form.is_valid:
-    #             user = form.save(commit=False)
-    #             user.username = user.username.lower()
-    #             user.save()
-    #             login(request, user)
-    #             return redirect("home")
-    #     except:
-    #         messages.error(request, "An error occurred during registration.")
+   
 
     context = {}
     return render(request, "blog/login_register.html", context)
@@ -97,7 +86,7 @@ def home(request):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()[0:6]
     context = {"page_obj": page_obj, "topics":topics}
     return render(request, "blog/home.html", context)
 
