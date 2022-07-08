@@ -5,8 +5,8 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class User(AbstractUser):
-    # profile_pic = models.ImageField(upload_to="avatar/", default='avatar.svg')
-    profile_pic = CloudinaryField('image')
+    profile_pic = models.ImageField(upload_to="avatar/", default='avatar.svg')
+    # profile_pic = CloudinaryField('image')
     email = models.EmailField(unique=True)
     bio = models.TextField(null=True, blank=True)
 
@@ -25,8 +25,8 @@ class Post(models.Model):
     id = models.UUIDField(primary_key = True,default = uuid.uuid4,editable = False)
     title = models.CharField(max_length=200)
     topics = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
-    # post_image = models.ImageField(upload_to="images/", blank=True)
-    post_image = CloudinaryField('image')
+    post_image = models.ImageField(upload_to="images/", blank=True)
+    # post_image = CloudinaryField('image')
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     body = models.TextField()
     # no_of_likes = models.IntegerField()
