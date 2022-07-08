@@ -26,7 +26,7 @@
                             <div class="col-lg-6">
                                 <!-- Blog post-->
                                 <div class="card mb-4">
-                                    <a href="{% url 'post' post.id %}?q={{post.title}}"><img class="card-img-top" src="{{post.post_image.url}}" alt="..." /></a>
+                                    <a href="{% url 'post' post.id %}?q={{post.title}}"><img class="img-fluid post_image" src="{{post.post_image.url}}" alt="..." /></a>
                                     <div class="card-body">
                                         <div class="small text-muted">{{post.updated|date:"M, d Y"}}</div>
                                         <h2 class="card-title h4">{{post.title}}</h2>
