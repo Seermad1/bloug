@@ -52,10 +52,10 @@ def register_user(request):
 
         if password == password2:
                 if User.objects.filter(email=email).exists():
-                    messages.error(request, "email taken")
+                    messages.error(request, "Email taken")
                 else:
                     if User.objects.filter(username=username).exists():
-                       messages.error(request, "username taken") 
+                       messages.error(request, "Username taken") 
                     else:
                         user = User.objects.create_user(
                             username=username, email=email, password=password
@@ -64,8 +64,7 @@ def register_user(request):
                         login(request, user)
                         return redirect("home")
         else:
-            messages.error(request, "password donot match.")
-   
+            messages.error(request, "Password do not match.")
 
     context = {}
     return render(request, "blog/login_register.html", context)
@@ -124,10 +123,6 @@ def create_post(request):
             post_image=request.FILES.get("post_image")
         )
         return redirect("home")
-        # form = PostForm(request.POST, request.FILES)
-        # if form.is_valid:
-        #     form.save()
-        #     return redirect("home")
     context = {"topics":topics, "form":form, "page":page}
     return render(request, "blog/create_post.html", context)
 
@@ -155,10 +150,6 @@ def update_post(request, pk):
             post.post_image = request.FILES.get("post_image")
         post.save()
         return redirect("home")
-        # form = PostForm(request.POST, request.FILES, instance=post)
-        # if form.is_valid:
-        #     form.save()
-        #     return redirect("home")
     context = {"form":form}
     return render(request, "blog/create_post.html", context)
 

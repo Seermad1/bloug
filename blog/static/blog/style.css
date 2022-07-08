@@ -139,6 +139,7 @@ background: #42ae68;
   width: 95%;
 }
 
+
 @media screen and (max-width:1000px) {
   .form {
     width: 60%;
