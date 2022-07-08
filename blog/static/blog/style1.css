@@ -26,6 +26,15 @@ body {
   height: 130vh;
   align-items: center;
 }
+.post_image{
+  height: 200px;
+  width: 100%;
+}
+.post_image1{
+  height: 400px;
+  width: 100%;
+}
+
 @media screen and (max-width:1000px) {
   .author{
     display: flex;
