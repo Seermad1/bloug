@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
 from cloudinary.models import CloudinaryField
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 
 # Create your models here.
 class User(AbstractUser):
