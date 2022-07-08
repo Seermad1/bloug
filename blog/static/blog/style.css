@@ -134,6 +134,10 @@ background: #42ae68;
 .messages{
   color: red;
 }
+.post_image{
+  height: 200px;
+  width: 95%;
+}
 
 @media screen and (max-width:1000px) {
   .form {
