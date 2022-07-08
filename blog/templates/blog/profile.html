@@ -64,7 +64,7 @@
                         </div>
                         {% endif %}
                           <a href="{% url 'post' post.id %}?q={{post.title}}">
-                            <img src="{{post.post_image.url}}"
+                            <img class="post_image" src="{{post.post_image.url}}"
                             alt="image 1" class="w-100 rounded-3">
                           </a>
                           <h4><a href="{% url 'post' post.id %}?q={{post.title}}">{{post.title}}</a></h4>
