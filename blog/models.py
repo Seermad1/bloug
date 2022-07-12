@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 import uuid
 from cloudinary.models import CloudinaryField
 
-
 # Create your models here.
 class User(AbstractUser):
     id = models.UUIDField(primary_key = True,default = uuid.uuid4,editable = False)
