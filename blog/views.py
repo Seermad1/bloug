@@ -110,7 +110,7 @@ def create_post(request):
     form = PostForm()
     topics = Topic.objects.all()
     if request.method == "POST":
-        topic_name = request.POST.get("tag_name")
+        topic_name = request.POST.get("topic")
         if Topic.objects.filter(name=topic_name).exists():
             topic = Topic.objects.get(name=topic_name)
         else:
